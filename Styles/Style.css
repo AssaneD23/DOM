@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+}
+/*haut de page */
+header{
+    display: flex;
+    align-items: center;
+}
+header div .nike{
+    margin-left: 430px;
+    margin-right: 280px;
+    margin-top: 10px;
+}
+/*body*/
+div.article{
+    padding-bottom: 65px;
+    border: solid black 1px;
+    border-radius: 13px;
+    margin: 15px;
+}
+/*articles*/
+#panier{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+img{
+    margin-left: 60px;
+    padding-right: 25px;
+    padding-top: 5px;
+}
+/*button*/
+#button{
+    position: absolute;
+    margin-left: 10px;
+    border: solid 1px black;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 8px 15px; 
+}
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    border: solid black 1px;
+}
+/*button delete */
+.delete{
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: solid black 1px;
+    background-color: #F95738;
+}
+span{
+    padding: 10px ;
+}
