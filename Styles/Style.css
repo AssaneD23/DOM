@@ -8,12 +8,18 @@ header{
     display: flex;
     align-items: center;
 }
+header:hover{
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 header div .nike{
     margin-left: 430px;
     margin-right: 280px;
     margin-top: 10px;
 }
 /*body*/
+/*aricle 1*/
 div.article{
     padding-bottom: 65px;
     border: solid black 1px;
@@ -27,6 +33,9 @@ div.article{
     align-items: center;
     margin-top: 15px;
 }
+.article:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 img{
     margin-left: 60px;
     padding-right: 25px;
@@ -35,9 +44,9 @@ img{
 /*button*/
 #button{
     position: absolute;
-    margin-left: 10px;
+    margin-left: 23px;
     border: solid 1px black;
-    background-color: #fff;
+    background-color: #F5F5F5;
     border-radius: 12px;
     padding: 8px 15px; 
 }
@@ -57,4 +66,13 @@ button{
 }
 span{
     padding: 10px ;
+}
+.like {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 35px;
+    margin-left: -60px;
+    cursor: pointer;
+    outline: none;
 }

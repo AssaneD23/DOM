@@ -1,28 +1,65 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const articles = document.querySelectorAll('.article');
+// Fonction pour calculer la somme en fonction de la quantité pour un article
+function calculateTotal(articleDiv) {
+    const quantity = parseInt(articleDiv.querySelector('.quantity').textContent);
+    const price = parseInt(articleDiv.querySelector('.name').textContent.trim());
+    const total = quantity * price;
+    articleDiv.querySelector('.TTL').textContent = total;
+    return total;
+}
 
-    articles.forEach(article => {
-        const minusBtn = article.querySelector('.minus');
-        const plusBtn = article.querySelector('.plus');
-        const quantityElement = article.querySelector('.quantity');
-        const deleteBtn = article.querySelector('.delete');
-
-        minusBtn.addEventListener('click', () => {
-            let quantity = parseInt(quantityElement.textContent);
-            if (quantity > 1) {
-                quantity--;
-                quantityElement.textContent = quantity;
-            }
-        });
-
-        plusBtn.addEventListener('click', () => {
-            let quantity = parseInt(quantityElement.textContent);
-            quantity++;
-            quantityElement.textContent = quantity;
-        });
-
-        deleteBtn.addEventListener('click', () => {
-            article.remove();
-        });
+// Fonction pour calculer la somme totale de tous les articles
+function calculateTotalPrice() {
+    let totalPrice = 0;
+    document.querySelectorAll('.article').forEach(function(articleDiv) {
+        const total = calculateTotal(articleDiv);
+        totalPrice += total ;
     });
+    return totalPrice +" X0F";
+}
+
+// Mise à jour du texte affichant le total
+function updateTotalPriceText() {
+    const totalPrice = calculateTotalPrice();
+    document.querySelector('.total-prix').textContent = "Total : " + totalPrice;
+}
+
+// Gestionnaire d'événement pour le bouton moins (-)
+document.querySelectorAll('.minus').forEach(function(button) {
+    button.addEventListener('click', function() {
+        let quantity = parseInt(button.parentNode.querySelector('.quantity').textContent);
+        if (quantity > 0) {
+            quantity--;
+            button.parentNode.querySelector('.quantity').textContent = quantity;
+            calculateTotal(button.parentNode.parentNode);
+            updateTotalPriceText();
+        }
+    });
+});
+
+// Gestionnaire d'événement pour le bouton plus (+)
+document.querySelectorAll('.plus').forEach(function(button) {
+    button.addEventListener('click', function() {
+        let quantity = parseInt(button.parentNode.querySelector('.quantity').textContent);
+        quantity++;
+        button.parentNode.querySelector('.quantity').textContent = quantity;
+        calculateTotal(button.parentNode.parentNode);
+        updateTotalPriceText();
+    });
+});
+
+// Gestionnaire d'événement pour le bouton supprimer
+document.querySelectorAll('.delete').forEach(function(button) {
+    button.addEventListener('click', function() {
+        const articleDiv = button.parentNode.parentNode;
+        articleDiv.parentNode.removeChild(articleDiv);
+        updateTotalPriceText();
+    });
+});
+
+// Calcul initial au chargement de la page pour chaque article et le total
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.article').forEach(function(articleDiv) {
+        calculateTotal(articleDiv);
+    });
+    updateTotalPriceText();
 });
