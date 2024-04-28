@@ -1,3 +1,4 @@
+ const likebtn = document.querySelector('.like')
 // Fonction pour calculer la somme en fonction de la quantité pour un article
 function calculateTotal(articleDiv) {
     const quantity = parseInt(articleDiv.querySelector('.quantity').textContent);
@@ -22,6 +23,16 @@ function updateTotalPriceText() {
     const totalPrice = calculateTotalPrice();
     document.querySelector('.total-prix').textContent = "Total : " + totalPrice;
 }
+// Gestion des boutons "like" pour tous les articles
+document.querySelectorAll('.like').forEach(function(likebtn) {
+    likebtn.addEventListener('click', function() {
+        if (likebtn.style.color !== 'red') {
+            likebtn.style.color = 'red';
+        } else {
+            likebtn.style.color = ''; 
+        }
+    });
+});
 
 // Gestionnaire d'événement pour le bouton moins (-)
 document.querySelectorAll('.minus').forEach(function(button) {

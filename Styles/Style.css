@@ -8,11 +8,7 @@ header{
     display: flex;
     align-items: center;
 }
-header:hover{
-    display: flex;
-    align-items: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+
 header div .nike{
     margin-left: 430px;
     margin-right: 280px;
